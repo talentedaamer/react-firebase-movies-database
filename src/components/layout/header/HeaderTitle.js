@@ -9,7 +9,7 @@ class HeaderTitle extends Component {
 
     return (
       <Pane flex={1} alignItems="center" display="flex">
-        <Heading size={500}>{title}</Heading>
+        <Heading size={600}>{title}</Heading>
       </Pane>
     );
   }

@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 
+import firebase from "../../database/firebase";
+
 import { Pane } from "evergreen-ui";
 import Loader from "../Loader";
+import SingleMovieItem from "./SingleMovieItem";
 
 class SingleMovie extends Component {
   constructor(props) {
@@ -14,14 +17,32 @@ class SingleMovie extends Component {
     };
   }
 
+  componentDidMount() {
+    const ref = firebase
+      .firestore()
+      .collection("movies")
+      .doc(this.props.match.params.id);
+    ref.get().then(doc => {
+      if (doc.exists) {
+        this.setState({
+          movie: doc.data(),
+          key: doc.id,
+          loading: false
+        });
+      } else {
+        console.log("No movies found!");
+      }
+    });
+  }
+
   render() {
-    const { loading } = this.state;
+    const { loading, movie } = this.state;
 
     let renderMovie;
     if (loading) {
       renderMovie = <Loader />;
     } else {
-      renderMovie = "movies";
+      renderMovie = <SingleMovieItem movie={movie} />;
     }
 
     return (
