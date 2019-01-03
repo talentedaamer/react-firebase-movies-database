@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 
+import { Link } from "react-router-dom";
 // evergreen ui components
 import { Pane, Button, Popover, Menu, Position } from "evergreen-ui";
 
@@ -13,7 +14,7 @@ class HeaderMenu extends Component {
             <Menu>
               <Menu.Group>
                 <Menu.Item icon="add" intent="secondary">
-                  Add New Movie
+                  <Link to="/create/">Add New Movie</Link>
                 </Menu.Item>
               </Menu.Group>
             </Menu>

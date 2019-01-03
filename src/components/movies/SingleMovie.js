@@ -36,13 +36,13 @@ class SingleMovie extends Component {
   }
 
   render() {
-    const { loading, movie } = this.state;
+    const { key, loading, movie } = this.state;
 
     let renderMovie;
     if (loading) {
       renderMovie = <Loader />;
     } else {
-      renderMovie = <SingleMovieItem movie={movie} />;
+      renderMovie = <SingleMovieItem key={key} movie={movie} />;
     }
 
     return (
