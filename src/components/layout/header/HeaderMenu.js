@@ -13,7 +13,7 @@ class HeaderMenu extends Component {
           content={
             <Menu>
               <Menu.Group>
-                <Menu.Item icon="add" intent="secondary">
+                <Menu.Item icon="add">
                   <Link to="/create/">Add New Movie</Link>
                 </Menu.Item>
               </Menu.Group>

@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import firebase from "../../database/firebase";
 
 import { Pane } from "evergreen-ui";
-import Loader from "../Loader";
+import Loader from "./utilities/Loader";
 import SingleMovieItem from "./SingleMovieItem";
 
 class SingleMovie extends Component {

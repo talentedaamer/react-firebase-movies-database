@@ -1,29 +1,24 @@
 import React, { Component } from "react";
 
-import firebase from "../../../database/firebase";
-
-// import ui components
 import {
-  Pane,
-  Button,
   Label,
   TextInput,
   Textarea,
   TagInput
 } from "evergreen-ui";
 
-class CreateMovie extends Component {
-  constructor() {
-    super();
+class SingleMovieItem extends Component {
 
-    this.ref = firebase.firestore().collection("movies");
+  constructor(props) {
+    super(props);
+    
     this.state = {
       name: "",
       description: "",
       director: "",
       type: "",
       stars: []
-    };
+    }
   }
 
   onChange = e => {
@@ -32,40 +27,19 @@ class CreateMovie extends Component {
     this.setState(state);
   };
 
-  submitForm = (e) => {
-
-    const { name, description, director, type, stars } = this.state;
-
-    if ( name === '' || description === '' ) {
-      console.log( 'Name & Description should be added' );
-      return;
-    }
-
-    this.ref.add({
-      name,
-      description,
-      director,
-      type,
-      stars
-    }).then( addedDoc => {
-      console.log('Movie added successfully', addedDoc );
-      this.setState({
-        name: "",
-        description: "",
-        director: "",
-        type: "",
-        stars: []
-      });
-    }).catch( error => {
-      console.log('Error adding movie', error);
-    });
+  componentDidMount() {
+    const props = this.props;
+    // this.setState({
+    //   name: movie.name,
+    // })
+    console.log( 'props', props );
   }
 
   render() {
     const { name, description, director, type, stars } = this.state;
 
     return (
-      <Pane background="yellowTint" padding={24} maxWidth={800} margin={"auto"}>
+      <div>
         <Label htmlFor="name" display="block">
           Movie Name
         </Label>
@@ -85,9 +59,9 @@ class CreateMovie extends Component {
           id="description"
           name="description"
           placeholder="Textarea placeholder..."
-          marginBottom={10}
-          onChange={this.onChange}
           value={description}
+          onChange={this.onChange}
+          marginBottom={10}
         />
 
         <Label htmlFor="director" marginBottom={4} display="block">
@@ -122,28 +96,19 @@ class CreateMovie extends Component {
           name="stars"
           inputProps={{ placeholder: "Add trees..." }}
           values={stars}
-          onAdd={value => {
-            this.setState({ stars: [...this.state.stars, value.toString() ] });
-          }}
-          onRemove={(_value, index) => {
-            this.setState({
-              stars: this.state.stars.filter((_, i) => i !== index)
-            });
-          }}
+          // onAdd={value => {
+          //   this.setState({ stars: [...this.state.stars, value.toString()] });
+          // }}
+          // onRemove={(_value, index) => {
+          //   this.setState({
+          //     stars: this.state.stars.filter((_, i) => i !== index)
+          //   });
+          // }}
           marginBottom={20}
         />
-
-        <Button
-          display="block"
-          onClick={this.submitForm}
-          appearance="primary"
-          iconBefore="add"
-        >
-          Add Movie
-        </Button>
-      </Pane>
+      </div>
     );
   }
 }
 
-export default CreateMovie;
+export default SingleMovieItem;

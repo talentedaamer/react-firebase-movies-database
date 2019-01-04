@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 // import components
 import App from "./components/App";
-import Edit from "./components/Edit";
+import EditMovie from "./components/movies/edit";
 import CreateMovie from "./components/movies/create";
 import SingleMovie from "./components/movies/SingleMovie";
 import Header from "./components/layout/header";
@@ -15,7 +15,7 @@ ReactDOM.render(
       <Header />
       <Route exact path="/" component={App} />
       <Route path="/movie/:id" component={SingleMovie} />
-      <Route path="/edit/:id" component={Edit} />
+      <Route path="/edit/:id" component={EditMovie} />
       <Route path="/create" component={CreateMovie} />
     </div>
   </Router>,

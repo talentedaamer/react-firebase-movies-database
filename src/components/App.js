@@ -4,8 +4,8 @@ import React, { Component } from "react";
 import { Pane } from "evergreen-ui";
 
 import firebase from "../database/firebase";
-import MoviesTable from "./MoviesTable";
-import Loader from "./Loader";
+import MoviesTable from "./movies/show/MoviesTable";
+import Loader from "./utilities/Loader";
 
 class App extends Component {
   constructor(props) {

@@ -13,6 +13,7 @@ import {
 } from "evergreen-ui";
 
 class SingleMovieItem extends Component {
+
   constructor(props) {
     super(props);
     this.state = { isShown: false };
@@ -36,28 +37,38 @@ class SingleMovieItem extends Component {
     const { movie } = this.props;
     const key = "dummy-key";
 
+    let stars;
+    if ( typeof movie.stars !== 'undefined' && movie.stars.length > 0 ) {
+        stars = movie.stars.join(", ");
+    }
+
     return (
       <div>
         <Dialog
           isShown={this.state.isShown}
           title="Confirm Delete"
           onCloseComplete={() => this.setState({ isShown: false })}
-          confirmLabel="Delete"
-        >
+          confirmLabel="Delete">
           Are you sure you want to delete movie item "Key-23wr"
         </Dialog>
 
         <Heading size={500} marginBottom={10}>
           {movie.name}
+          { movie.type !== undefined ? (
           <Badge marginLeft={5} color="blue" isSolid>
             {movie.type}
           </Badge>
+          ) : ''}
         </Heading>
         <Paragraph size={500}>
-          <Strong>Director : {movie.director}</Strong>
+          { movie.director !== undefined ? (
+            <Strong>Director : {movie.director}</Strong>
+          ) : '' }
         </Paragraph>
         <Paragraph size={500} marginBottom={10}>
-          <Strong>Cast : {movie.stars.join(", ")}</Strong>
+        { stars !== undefined ? (
+            <Strong>Cast : {stars}</Strong>
+          ) : '' }
         </Paragraph>
         <Paragraph size={500} marginBottom={10}>
           {movie.description}
