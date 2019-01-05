@@ -8,6 +8,7 @@ import MoviesTable from "./movies/show/MoviesTable";
 import Loader from "./utilities/Loader";
 
 class App extends Component {
+
   constructor(props) {
     super(props);
 
@@ -58,6 +59,7 @@ class App extends Component {
       </Pane>
     );
   }
+
 }
 
 export default App;
