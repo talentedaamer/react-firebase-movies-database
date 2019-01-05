@@ -1,3 +1,9 @@
+## Application ScreenShots
+
+Home Page
+
+![Application Home Page](https://raw.githubusercontent.com/talentedaamer/react-firebase-movies-database/master/public/images/firebase-react-crud-application-1.png)
+
 ## Firebase Setup
 
 Open `src/config/config.js` and add your firebase project configurations.
