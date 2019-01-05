@@ -1,8 +1,16 @@
 ## Application ScreenShots
 
-Home Page
+###Home Page
+![application home page](https://raw.githubusercontent.com/talentedaamer/react-firebase-movies-database/master/public/images/firebase-react-crud-application-1.png)
 
-![Application Home Page](https://raw.githubusercontent.com/talentedaamer/react-firebase-movies-database/master/public/images/firebase-react-crud-application-1.png)
+###Single Movie View
+![application single movie view](https://raw.githubusercontent.com/talentedaamer/react-firebase-movies-database/master/public/images/firebase-react-crud-application-2.png)
+
+Movie Edit Screen
+![application movie edit screen](https://raw.githubusercontent.com/talentedaamer/react-firebase-movies-database/master/public/images/firebase-react-crud-application-3.png)
+
+Add New Movie Screen
+![application add new movie screen](https://raw.githubusercontent.com/talentedaamer/react-firebase-movies-database/master/public/images/firebase-react-crud-application-4.png)
 
 ## Firebase Setup
 
